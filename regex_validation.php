@@ -78,4 +78,13 @@ function html_tag_validation($html_tag){
     return 0;
   }
 }
+//Stop SQL Injection into the Database by disallowing all "Special Characters"
+function stop_sql_injection_validation($sql_injection){
+  $regex = '/^([1-zA-Z0-1@.\s]{1,255})$/';
+  if (preg_match($regex,$sql_injection)) {
+    return 1;
+  }else {
+    return 0;
+  }
+}
 ?>
